@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Task Manager (Eloy AI Project)</title>
+    <title>My Task Manager v2.0 (Eloy AI Project)</title>
     <!-- Basic styling for the application interface -->
     <style>
         body { font-family: sans-serif; display: flex; flex-direction: column; align-items: center; padding: 20px; }
@@ -18,7 +18,7 @@
 
     <div class="container">
         <!-- Title of the program -->
-        <h2>Task Manager</h2>
+        <h2>Task Manager v2.0</h2>
         <!-- Input field for new tasks -->
         <input type="text" id="taskInput" placeholder="New task...">
         <!-- Botton for add new tasks-->
@@ -48,6 +48,13 @@
             document.getElementById('taskList').appendChild(li);
             // Clear the input field for the next entry
             input.value = "";
+
+            // New function: Allow pressing "Enter" key to add a task
+            document.getElementById('taskInput').addEventListener('keypress', function (e) {
+                if (e.key === 'Enter') {
+                    addTask();
+                }
+            });
         }
     </script>
 </body>
