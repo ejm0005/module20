@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Task Manager (Eloy AI Project)</title>
+    <!-- Basic styling for the application interface -->
+    <style>
+        body { font-family: sans-serif; display: flex; flex-direction: column; align-items: center; padding: 20px; }
+        .container { border: 1px solid #ccc; padding: 20px; border-radius: 8px; width: 300px; }
+        input { width: 70%; padding: 5px; }
+        button { padding: 5px 10px; cursor: pointer; }
+        ul { list-style: none; padding: 0; }
+        li { background: #f4f4f4; margin: 5px 0; padding: 10px; border-radius: 4px; display: flex; justify-content: space-between; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Title of the program -->
+        <h2>Task Manager</h2>
+        <!-- Input field for new tasks -->
+        <input type="text" id="taskInput" placeholder="New task...">
+        <!-- Botton for add new tasks-->
+        <button onclick="addTask()">add</button>
+        <!-- Task List container -->
+        <ul id="taskList"></ul>
+    </div>
+
+    <script>
+        //Function to add a new task to the list.
+        function addTask() {
+            const input = document.getElementById('taskInput');
+            const taskText = input.value.trim();
+            
+            // Validation: Ensure the input is not empty
+            if (taskText === "") {
+                alert("Task is empty");
+                return;
+            }
+
+            // Create a new list item element
+            const li = document.createElement('li');
+            // Set the inner HTML with task text and a functional delete button
+            li.innerHTML = `${taskText} <button onclick="this.parentElement.remove()">X</button>`;
+            
+            // Append the new task to the Unordered List (UL)
+            document.getElementById('taskList').appendChild(li);
+            // Clear the input field for the next entry
+            input.value = "";
+        }
+    </script>
+</body>
+</html>
